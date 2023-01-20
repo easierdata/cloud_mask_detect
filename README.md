@@ -43,3 +43,7 @@ bacalhau list
 bacalhau describe [JOB_ID]
 bacalhau get [JOB_ID]
 ```
+
+## Data Pinned to my local IPFS node and available to the network
+data:Qmf3YSGtSK4n9rKVHqkJJDwGAwz8wPS3F4G85tZmZDgmBf
+AuxiData:QmapUZ4dEnwJqtPNm7LZexC7RioqCESHciW2Aa8cG6YWwN
