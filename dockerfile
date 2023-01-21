@@ -13,7 +13,7 @@ LABEL maintainer="jsolly"
 
 # Copy the files from the host to the container
 COPY fmask/fmask_4_3.py /project 
-COPY fmask/data /project/input
+COPY fmask/data /project/data
 # Now the directory structure is as follows
 # /project
 #   |-- fmask_4_3.py
