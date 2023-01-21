@@ -1,20 +1,26 @@
-#Deriving the latest base image
-FROM python:latest
+FROM python:slim
 
-
-#Labels as key value pair
-LABEL Maintainer="jsolly"
-
+RUN apt-get update && apt-get -y upgrade \
+    && apt-get install -y --no-install-recommends \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
 
 # Any working directory can be chosen as per choice like '/' or '/home' etc
-WORKDIR /home
+WORKDIR /project
 
-#to COPY the remote file at working directory in container
-COPY test.py ./
-# Now the structure looks like this '/home/test.py'
+# Labels as key value pair
+LABEL maintainer="jsolly"
+
+# Copy the files from the host to the container
+COPY fmask/fmask_4_3.py /project 
+COPY fmask/data /project/input
+# Now the directory structure is as follows
+# /project
+#   |-- fmask_4_3.py
+#   |-- data
+#       |-- LC08_L1TP_152028_20160209_20200907_02_T1
+#           |-- LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt
 
 
-#CMD instruction should be used to run the software
-#contained by your image, along with any arguments.
-
-CMD [ "python", "./test.py"]
+# Run the python script
+CMD [ "python", "fmask_4_3.py", "data/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt", "data/"]
