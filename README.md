@@ -42,8 +42,8 @@ https://docs.bacalhau.org/getting-started/installation
 ### Run the Docker Image on Bacalhau
 ```shell
 Step 7 - Run the Docker image on Bacalhau
-bacalhau docker run -v bafybeibwv2ccdr5u3esjaeu4fh5b2cbgbixolk33wg4pj6t4lqvrkf7qja:/project/input \
-	-o output:/project/output \
+bacalhau docker run -v bafybeibwv2ccdr5u3esjaeu4fh5b2cbgbixolk33wg4pj6t4lqvrkf7qja:/project/inputs \
+	-o output:/project/outputs \
 	jsolly/cloud_mask_detect
 bacalhau list
 bacalhau describe [JOB_ID]
@@ -51,5 +51,4 @@ bacalhau get [JOB_ID]
 ```
 
 ## Data Pinned to my local IPFS node and available to the network
-data:Qmf3YSGtSK4n9rKVHqkJJDwGAwz8wPS3F4G85tZmZDgmBf
-AuxiData:QmapUZ4dEnwJqtPNm7LZexC7RioqCESHciW2Aa8cG6YWwN
+inputs:
