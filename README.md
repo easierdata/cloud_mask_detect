@@ -51,4 +51,4 @@ bacalhau get [JOB_ID]
 ```
 
 ## Data Pinned to my local IPFS node and available to the network
-inputs:
+inputs:QmUmEJ9vU8H8PJLW3y2Z9RogNWXPW5KCgTyoLiokpjWRrL
