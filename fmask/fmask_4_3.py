@@ -9,8 +9,8 @@ import os
 import shutil
 import glob
 import numpy as np
-import gdal, gdalconst
-import osr
+from osgeo import gdal
+from osgeo import osr
 import math
 import matplotlib.pyplot as plt
 from scipy import ndimage
@@ -1788,4 +1788,5 @@ def main():
    return 0
 
 if __name__ == '__main__':
+   print("Starting Fmask")
    main()
