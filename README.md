@@ -1,10 +1,20 @@
 # cloud_mask_detect
 
 ## Prerequisites
-Install Bacalhau Client
-https://docs.bacalhau.org/getting-started/installation
+[Install Bacalhau Client](https://docs.bacalhau.org/getting-started/installation)
+[Install Anaconda](https://docs.anaconda.com/anaconda/install/index.html)
+```shell
+conda env create -n myenv -f environment.yml
+conda activate myenv
+```
+
 
 ## Steps to run the application
+### Test Locally
+```shell
+python3 fmask/fmask_4_3.py inputs/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt outputs/
+```
+Something should be printed to the console and the output directory should contain the output files.
 
 ### Create Files And Test Container Locally
 1.  Create a Python file as an entry point for the application. In this example, we are using fmask/fmask_4_3.py. The Python file will take in input data and output data as arguments.
