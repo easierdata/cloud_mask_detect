@@ -25,4 +25,4 @@ COPY fmask/inputs /project/inputs
 
 
 # Run the python script
-CMD [ "python", "fmask_4_3.py", "inputs/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt", "data/"]
+CMD [ "python", "fmask_4_3.py", "inputs/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt", "outputs/"]
