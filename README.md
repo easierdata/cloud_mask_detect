@@ -1,8 +1,8 @@
 # cloud_mask_detect
 
 ## Prerequisites
-Install Docker
-[Install Bacalhau Client](https://docs.bacalhau.org/getting-started/installation)
+- [Install Docker](https://docs.docker.com/get-docker/)
+- [Install Bacalhau Client](https://docs.bacalhau.org/getting-started/installation)
 
 
 ## Steps to run the application
