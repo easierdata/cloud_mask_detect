@@ -10,6 +10,7 @@ import shutil
 import glob
 import numpy as np
 from osgeo import gdal
+from osgeo import gdalconst
 from osgeo import osr
 import math
 import matplotlib.pyplot as plt
@@ -437,14 +438,14 @@ def get_aux_data(path, scene_id, data_type, xsize, ysize, proj, args, no_data_va
    
    if data_type == 'dem':
       if args.path_dem is None:
-         path_aux_data = os.path.join(os.getcwd(),'AuxiData', 'GTOPO30ZIP')
+         path_aux_data = os.path.join(os.getcwd(),'inputs/AuxiData', 'GTOPO30ZIP')
       else:
          path_aux_data = args.path_dem   
       if no_data_value is None:
          no_data_value = -9999
    elif data_type == 'gswo':
       if args.path_gswo is None:
-         path_aux_data = os.path.join(os.getcwd(),'AuxiData', 'GSWO150ZIP')
+         path_aux_data = os.path.join(os.getcwd(),'inputs/AuxiData', 'GSWO150ZIP')
       else:
          path_aux_data = args.path_gswo    
       if no_data_value is None:
@@ -1739,13 +1740,13 @@ def fmask(args):
    # fname = f'{data["scene_id"]}_waterall.tif'
    # save_raster_file(water_all, os.path.join(output_path, fname), xsize, ysize, 
    #                   gdalconst.GDT_Byte, out_driver, geo_transform, projection)
-   
+
    fname = f'{data["scene_id"]}_ndbi.tif'
    save_raster_file(data['ndbi'], os.path.join(output_path, fname), xsize, ysize, 
                      gdalconst.GDT_Float32, out_driver, geo_transform, projection)
-   fname = f'{data["scene_id"]}_cdi.tif'
-   save_raster_file(data['cdi'], os.path.join(output_path, fname), xsize, ysize, 
-                     gdalconst.GDT_Float32, out_driver, geo_transform, projection)
+   # fname = f'{data["scene_id"]}_cdi.tif'
+   # save_raster_file(data['cdi'], os.path.join(output_path, fname), xsize, ysize, 
+   #                   gdalconst.GDT_Float32, out_driver, geo_transform, projection)
    fname = f'{data["scene_id"]}_ndbi2.tif'
    save_raster_file(ndbi, os.path.join(output_path, fname), xsize, ysize, 
                      gdalconst.GDT_Float32, out_driver, geo_transform, projection)

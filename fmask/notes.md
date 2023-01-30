@@ -16,4 +16,12 @@ to:
 ```py
 from osgeo import gdal
 from osgeo import osr
+from osgeo import gdalconst
+```
+
+I commented out these lines because there was a KeyError on data['cdi']
+```py
+   # fname = f'{data["scene_id"]}_cdi.tif'
+   # save_raster_file(data['cdi'], os.path.join(output_path, fname), xsize, ysize, 
+   #                   gdalconst.GDT_Float32, out_driver, geo_transform, projection)
 ```
