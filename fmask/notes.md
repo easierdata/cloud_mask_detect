@@ -25,3 +25,9 @@ I commented out these lines because there was a KeyError on data['cdi']
    # save_raster_file(data['cdi'], os.path.join(output_path, fname), xsize, ysize, 
    #                   gdalconst.GDT_Float32, out_driver, geo_transform, projection)
 ```
+
+
+bacalhau docker run -v bafybeihhjkebnaeaf6e7oyxrln5hi32kzmizwivpkolnqnf7hojr3wx364:/project/inputs jsolly/cloud_mask_detect
+
+
+docker run  --rm -v $(pwd)/inputs/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_ANG.txt:/project/inputs/LC08_L1TP_152028_20160209_20200907_02_T1_ANG.txt cloud_mask_detect
