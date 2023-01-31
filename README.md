@@ -18,7 +18,7 @@ docker build -t cloud_mask_detect . && docker run cloud_mask_detect
 ```
 ### Push Image to Docker Hub and Upload Input Data to Filecoin/IPFS
 
-- Login to Docker Hub using the following command:
+- Login to Docker Hub using the following command. Make sure to put in your username which is different than your email address:
     ```shell
     docker login
     ```
@@ -28,7 +28,7 @@ docker build -t cloud_mask_detect . && docker run cloud_mask_detect
     ```
 - Push the Docker image to the Docker Hub using the following command:
     ```shell
-    docker push cloud_mask_detect
+    docker push <DOCKER_USERNAME>/cloud_mask_detect
     ```
 - Upload input data to Filecoin/IPFS. Here is an example using the IPFS CLI:
     ```shell
