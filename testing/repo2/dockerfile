@@ -1,0 +1,5 @@
+FROM --platform=linux/arm64 python AS build
+WORKDIR /project
+COPY print_text.py /project
+RUN mkdir /project/inputs
+CMD ["python3", "print_text.py"]

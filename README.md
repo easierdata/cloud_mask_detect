@@ -8,13 +8,17 @@
 ## Steps to run the application
 ### Test Locally (See Dockerfile for dependencies)
 ```shell
-python3 fmask/fmask_4_3.py inputs/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt outputs/
+$ cd inputs/
+$ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt outputs/
 ```
 Something should be printed to the console and the output directory should contain the output files.
 
 ### Create Docker Image and Test Container Locally
 ```
-docker build -t cloud_mask_detect . && docker run cloud_mask_detect
+$ docker build -t cloud_mask_detect .
+$ cd fmask
+$ docker run --rm -it -v $(pwd)/inputs/:/project/inputs cloud_mask_detect /bin/bash
+$ docker run --rm -v $(pwd)/inputs:/project/inputs cloud_mask_detect
 ```
 ### Push Image to Docker Hub and Upload Input Data to Filecoin/IPFS
 
@@ -39,7 +43,6 @@ docker build -t cloud_mask_detect . && docker run cloud_mask_detect
 ```shell
 Step 7 - Run the Docker image on Bacalhau
 bacalhau docker run -v bafybeibwv2ccdr5u3esjaeu4fh5b2cbgbixolk33wg4pj6t4lqvrkf7qja:/project/inputs \
-	-o output:/project/outputs \
 	jsolly/cloud_mask_detect
 bacalhau list
 bacalhau describe [JOB_ID]

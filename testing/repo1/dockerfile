@@ -1,7 +1,3 @@
-# Inspired by https://github.com/wesfloyd/bacalhau_socat_test/blob/main/Dockerfile
-
-# Any working directory can be chosen as per choice like '/' or '/home' etc
-
 FROM continuumio/miniconda3
 RUN conda update -y conda
 RUN conda install -c conda-forge -y gdal
@@ -12,7 +8,8 @@ RUN conda install -c conda-forge -y scikit-image
 
 WORKDIR /project
 RUN mkdir /project/outputs
+RUN mkdir /project/inputs
 LABEL maintainer="jsolly"
+COPY inputs/test.py /project/inputs/test.py
 
 CMD ["python3", "inputs/test.py"]
-# CMD ["python3", "inputs/fmask_4_3.py", "inputs/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt", "outputs/"]

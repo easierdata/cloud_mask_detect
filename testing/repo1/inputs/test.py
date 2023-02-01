@@ -10,11 +10,9 @@ for file in dir_list:
         with open(file_path, "r") as f:
             contents = f.read()
             with open("outputs/container_output.txt", "w") as out:
-                out.write(contents)
+                out.write(contents+" - This is a test")
                 break
 
 # Print the contents of the output file
 with open("outputs/container_output.txt", "r") as f:
-    # print first 5 lines
-    for i in range(5):
-        print(f.readline())
+    print(f.read())
