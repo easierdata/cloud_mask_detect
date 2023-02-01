@@ -10,9 +10,9 @@ RUN conda install -c conda-forge -y matplotlib-base
 RUN conda install -c conda-forge -y statsmodels
 RUN conda install -c conda-forge -y scikit-image
 
-WORKDIR /project
-RUN mkdir /project/outputs
 LABEL maintainer="jsolly"
+WORKDIR /project/inputs
+RUN mkdir ../outputs
 
-CMD ["python3", "inputs/test.py"]
-# CMD ["python3", "inputs/fmask_4_3.py", "inputs/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt", "outputs/"]
+# CMD ["python3", "inputs/test.py"]
+CMD ["python3", "fmask_4_3.py", "LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt", "outputs/"]
