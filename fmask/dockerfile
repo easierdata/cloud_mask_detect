@@ -2,7 +2,7 @@
 
 # Any working directory can be chosen as per choice like '/' or '/home' etc
 
-FROM continuumio/miniconda3
+FROM continuumio/anaconda3
 RUN conda update -y conda
 RUN conda install -c conda-forge -y gdal
 RUN conda install -c conda-forge -y scipy
@@ -15,4 +15,4 @@ WORKDIR /project/inputs
 RUN mkdir ../outputs
 
 # CMD ["python3", "inputs/test.py"]
-CMD ["python3", "fmask_4_3.py", "LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt", "outputs/"]
+CMD ["python3", "fmask_4_3.py", "LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt", "../outputs"]

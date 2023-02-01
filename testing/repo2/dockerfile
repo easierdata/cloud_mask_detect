@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 python AS build
+FROM python
 WORKDIR /project
 COPY print_text.py /project
 RUN mkdir /project/inputs

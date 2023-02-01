@@ -14,9 +14,13 @@ $ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028
 Something should be printed to the console and the output directory should contain the output files.
 
 ### Create Docker Image and Test Container Locally
-```
+**If you are on arm64 architecture (M1, M2 Macs) you will need to run this command to build the image:**
+```shell
+$ docker buildx build --platform linux/amd64 -t cloud_mask_detect .
+``` 
+Otherwise, you can run this command to build the image:
+```shell
 $ docker build -t cloud_mask_detect .
-$ cd fmask
 $ docker run --rm -it -v $(pwd)/inputs/:/project/inputs cloud_mask_detect /bin/bash
 $ docker run --rm -v $(pwd)/inputs:/project/inputs cloud_mask_detect
 ```
