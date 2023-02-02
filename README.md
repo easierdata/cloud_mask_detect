@@ -47,12 +47,12 @@ $ docker run --rm -v $(pwd)/inputs:/project/inputs cloud_mask_detect
 ### Run the Docker Image on Bacalhau
 ```shell
 Step 7 - Run the Docker image on Bacalhau
-bacalhau docker run -v bafybeibwv2ccdr5u3esjaeu4fh5b2cbgbixolk33wg4pj6t4lqvrkf7qja:/project/inputs \
+bacalhau docker run -v QmSSx9zK9keTwJccmnB9P4Ss9t7fjcmYU1Q7H1BgMv3xdS:/project/inputs \
 	jsolly/cloud_mask_detect
 bacalhau list
 bacalhau describe [JOB_ID]
 bacalhau get [JOB_ID]
 ```
 
-## Data Pinned to my local IPFS node and available to the network
-inputs:QmUmEJ9vU8H8PJLW3y2Z9RogNWXPW5KCgTyoLiokpjWRrL
+## /inputs Pinned to my local IPFS node and available to the network
+inputs:QmSSx9zK9keTwJccmnB9P4Ss9t7fjcmYU1Q7H1BgMv3xdS
