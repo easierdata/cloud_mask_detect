@@ -2,15 +2,15 @@
 
 # Any working directory can be chosen as per choice like '/' or '/home' etc
 
-FROM continuumio/miniconda3:latest
-RUN conda update -y conda
-RUN conda install -c conda-forge -y gdal
-RUN conda install -c conda-forge -y scipy
-RUN conda install -c conda-forge -y matplotlib-base
-RUN conda install -c conda-forge -y statsmodels
-RUN conda install -c conda-forge -y scikit-image
-# RUN conda install -c conda-forge -y scikit-learn
-RUN conda install -c conda-forge -y gdal
+FROM osgeo/gdal
+RUN apt-get update -y
+RUN apt-get install -y python3-pip
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install matplotlib
+RUN python3 -m pip install scipy
+RUN python3 -m pip install statsmodels
+RUN python3 -m pip install scikit-image
+
 LABEL maintainer="jsolly"
 WORKDIR /project/inputs
 RUN mkdir ../outputs
