@@ -1,0 +1,6 @@
+FROM python
+WORKDIR /project/inputs
+RUN mkdir ../outputs
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+CMD ["python3", "print_text.py"]
