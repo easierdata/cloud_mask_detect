@@ -8,8 +8,9 @@
 ## Steps to run the application
 ### Test Locally (See Dockerfile for dependencies)
 ```shell
-$ cd inputs/
-$ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt outputs/
+$ cd fmask/inputs
+$ conda activate <env_name>
+$ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt ../outputs/
 ```
 Something should be printed to the console and the output directory should contain the output files.
 
