@@ -16,7 +16,7 @@ from skimage.filters import sobel
 from skimage.segmentation import felzenszwalb, slic, quickshift#, watershed
 from skimage.segmentation import mark_boundaries
 from skimage.util import img_as_float
-import gdal, ogr, gdalconst, osr
+from osgeo import gdal, osr, ogr, gdalconst
 import time
 import os
 
