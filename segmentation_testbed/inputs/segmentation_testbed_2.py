@@ -181,7 +181,8 @@ def Sentinel2QuickShift():
     fname = 'T39QXG_20171113T070131_B118a04.vrt'
     
     
-    path_out = 'D:/Scripts/Segmentation/S2/test/'
+    # path_out = 'D:/Scripts/Segmentation/S2/test/'
+    path_out = "../outputs"
     
     ds = gdal.Open(os.path.join(path_to_data,fname))
     x_size = ds.RasterXSize
