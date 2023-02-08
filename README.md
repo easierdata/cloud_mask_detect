@@ -1,4 +1,5 @@
 There is a readme inside each directory.  The readme contains the instructions for that directory.
+```shell
 ├── fmask
 │   ├── README.md
 ├── pyfmask-stage1.4
@@ -7,3 +8,4 @@ There is a readme inside each directory.  The readme contains the instructions f
 │   ├── README.md
 └── testing
     ├── README.md
+```
