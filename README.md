@@ -3,13 +3,25 @@
 ## Prerequisites
 - [Install Docker](https://docs.docker.com/get-docker/)
 - [Install Bacalhau Client](https://docs.bacalhau.org/getting-started/installation)
+- Install GDAL and its dependencies.
+This is easier said than done. The dockerfile is a good example of how to install GDAL and it's dependencies on an ubuntu-based docker container, but you'll fall flat trying to replicate the same steps on a different operating system (like MacOS or Windows).
+### Install GDAL and dependencies on MacOS
+```
+$ brew install gdal
+$ brew install python3
+$ which python3
+> /opt/homebrew/bin/python3
+# Create a virtual environment for this project locally
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ which python3
+(venv) > ~/cloud_mask_detect/fmask/venv/bin/python3
+(venv) $ python3 -m pip install requirements/requirements.txt -c constraints.txt
 
-
-## Steps to run the application
-### Test Locally (See Dockerfile for dependencies)
+## Steps to run the script
+### Test Locally
 ```shell
 $ cd fmask/inputs
-$ conda activate <env_name>
 $ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt ../outputs/
 ```
 Something should be printed to the console and the output directory should contain the output files.
