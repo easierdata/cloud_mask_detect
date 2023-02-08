@@ -13,7 +13,7 @@ $ which python3
 $ python3 -m venv venv
 $ source venv/bin/activate
 (venv) $ which python3
-(venv) > ~/cloud_mask_detect/fmask/venv/bin/python3
+(venv) > ~/cloud_mask_detect/segmentation_testbed/venv/bin/python3
 (venv) $ python3 -m pip install --upgrade pip
 (venv) $ python3 -m pip install requirements/requirements.txt -c constraints.txt
 ```
@@ -21,7 +21,7 @@ $ source venv/bin/activate
 ## Steps to run the script
 ### Test Locally
 ```shell
-$ cd fmask/inputs
+$ cd segmentation_testbed/inputs
 $ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt ../outputs/
 ```
 Something should be printed to the console and the output directory should contain the output files.
@@ -29,13 +29,13 @@ Something should be printed to the console and the output directory should conta
 ### Create Docker Image and Test Container Locally
 **If you are on arm64 architecture (M1, M2 Macs) you will need to run this command to build the image:**
 ```shell
-$ docker buildx build --platform linux/amd64 -t cloud_mask_detect .
+$ docker buildx build --platform linux/amd64 -t segmentation_testbed .
 ``` 
 Otherwise, you can run this command to build the image:
 ```shell
-$ docker build -t cloud_mask_detect .
-$ docker run --rm -it -v $(pwd)/inputs/:/project/inputs cloud_mask_detect /bin/bash
-$ docker run --rm -v $(pwd)/inputs:/project/inputs cloud_mask_detect
+$ docker build -t segmentation_testbed .
+$ docker run --rm -it -v $(pwd)/inputs/:/project/inputs segmentation_testbed /bin/bash
+$ docker run --rm -v $(pwd)/inputs:/project/inputs segmentation_testbed
 ```
 ### Push Image to Docker Hub and Upload Input Data to Filecoin/IPFS
 
@@ -45,11 +45,11 @@ $ docker run --rm -v $(pwd)/inputs:/project/inputs cloud_mask_detect
     ```
 - Tag the Docker image with your Docker Hub username using the following command:
     ```shell
-    docker tag cloud_mask_detect <DOCKER_USERNAME>/cloud_mask_detect
+    docker tag segmentation_testbed <DOCKER_USERNAME>/segmentation_testbed
     ```
 - Push the Docker image to the Docker Hub using the following command:
     ```shell
-    docker push <DOCKER_USERNAME>/cloud_mask_detect
+    docker push <DOCKER_USERNAME>/segmentation_testbed
     ```
 - Upload input data to Filecoin/IPFS. Here is an example using the IPFS CLI:
     ```shell
@@ -60,7 +60,7 @@ $ docker run --rm -v $(pwd)/inputs:/project/inputs cloud_mask_detect
 ```shell
 Step 7 - Run the Docker image on Bacalhau
 bacalhau docker run -v QmSSx9zK9keTwJccmnB9P4Ss9t7fjcmYU1Q7H1BgMv3xdS:/project/inputs \
-	<USERNAME>/cloud_mask_detect
+	<USERNAME>/segmentation_testbed
 bacalhau list
 bacalhau describe [JOB_ID]
 bacalhau get [JOB_ID]
