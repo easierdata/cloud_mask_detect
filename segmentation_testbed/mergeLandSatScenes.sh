@@ -1,28 +1,34 @@
 #!/bin/bash
 
-# Check if a directory path argument is provided
-if [ $# -eq 0 ]; then
-  echo "Error: No directory path provided."
-  echo "Usage: sh mergeLandsatScene.sh <directory path>"
-  exit 1
+# Check if a directory path was provided as an argument
+if [ $# -eq 0 ]
+then
+    echo "Please provide a directory path as an argument."
+    exit 1
 fi
 
 # Set the input directory path
 input_dir=$1
 
+# Set the output directory path
+output_dir=inputs/landsatSceneMosaics
+
+# Check if the output directory exists, if not create it
+if [ ! -d "$output_dir" ]
+then
+    mkdir $output_dir
+fi
+
+# Set the input files to be used in the mosaic
+input_files="$input_dir/*.TIF"
+
 # Set the output file name
-output_file="merged_landsat_scene.tif"
+output_file="$output_dir/$(basename $input_dir)_mosaic.tif"
 
-# Get all the TIF files in the input directory
-files=$(ls $input_dir | grep ".TIF")
+# Activate the Python environment
+source venv/bin/activate
 
-# Build the gdal_merge.py command
-cmd="gdal_merge.py -o $output_file"
-for file in $files; do
-  cmd="$cmd $input_dir/$file"
-done
+# Create the mosaic
+gdal_merge.py -o $output_file $input_files
 
-# Run the gdal_merge.py command
-eval $cmd
-
-echo "Merged Landsat scene created: $output_file"
+echo "Mosaic created successfully and saved to $output_file"

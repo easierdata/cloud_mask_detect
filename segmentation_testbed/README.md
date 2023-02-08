@@ -19,10 +19,42 @@ $ source venv/bin/activate
 ```
 
 ## Steps to run the script
+
+### Mosaic a Landsat Scene
+This script assumes you have a directory containing a Landsat scene. The directory should look something like this:
+```shell
+inputs/landsatScenes/
+└── LC08_L1TP_001028_20220615_20220627_02_T1
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_ANG.txt
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B1.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B10.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B11.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B2.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B3.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B4.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B5.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B6.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B7.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B8.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_B9.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_MTL.txt
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_MTL.xml
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_QA_PIXEL.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_QA_RADSAT.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_SAA.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_SZA.TIF
+    ├── LC08_L1TP_001028_20220615_20220627_02_T1_VAA.TIF
+    └── LC08_L1TP_001028_20220615_20220627_02_T1_VZA.TIF
+```
+Going off the example above, you would run the following command:
+```shell
+$ sh mosaic_landsat.sh inputs/landsatScenes/LC08_L1TP_001028_20220615_20220627_02_T1
+```
+A mosaic of the Landsat scene should be created inside `/inputs/landsatScenesMosiacs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif`.
 ### Test Locally
 ```shell
 $ cd segmentation_testbed/inputs
-$ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt ../outputs/
+$ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt ../outputs/ #TODO: update this command
 ```
 Something should be printed to the console and the output directory should contain the output files.
 
