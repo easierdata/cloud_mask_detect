@@ -17,6 +17,7 @@ $ source venv/bin/activate
 (venv) $ which python3
 (venv) > ~/cloud_mask_detect/fmask/venv/bin/python3
 (venv) $ python3 -m pip install requirements/requirements.txt -c constraints.txt
+```
 
 ## Steps to run the script
 ### Test Locally
