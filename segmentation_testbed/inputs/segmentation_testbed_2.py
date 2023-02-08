@@ -62,10 +62,10 @@ def Test():
     plt.show()
     return
 
-def Sentinel2SLIC():
-    path_to_data = 'D:/Data/Classif-testbed/sat2018_mt/coreg/'
-    path_out = 'D:/Scripts/Segmentation/S2/test/'
-    fname = 'srLaSRCS2AV3.5.5-L1C_T18SUJ_A015924_20180710T160035-all_geo.tif'
+def Sentinel2SLIC(path_to_data, path_out, fname):
+    # path_to_data = 'D:/Data/Classif-testbed/sat2018_mt/coreg/'
+    # path_out = 'D:/Scripts/Segmentation/S2/test/'
+    # fname = 'srLaSRCS2AV3.5.5-L1C_T18SUJ_A015924_20180710T160035-all_geo.tif'
     
     ds = gdal.Open(os.path.join(path_to_data,fname))
     x_size = ds.RasterXSize
@@ -170,19 +170,18 @@ def Sentinel2SLIC():
     ds = None
     img = None
 
-def Sentinel2QuickShift():
-    path_to_data = 'D:/Data/Classif-testbed/sat2018_mt/coreg/'
-    fname = 'srLaSRCS2AV3.5.5-L1C_T18SUJ_A015924_20180710T160035-all_geo.tif'
+def Sentinel2QuickShift(path_to_data, fname, path_out="../outputs"):
+    # path_to_data = 'D:/Data/Classif-testbed/sat2018_mt/coreg/'
+    # fname = 'srLaSRCS2AV3.5.5-L1C_T18SUJ_A015924_20180710T160035-all_geo.tif'
     
-    path_to_data = r'D:\Scripts\S2A_cloud_cover\example_data'
+    # path_to_data = r'D:\Scripts\S2A_cloud_cover\example_data'
     # fname = 'T52SDG_20180719T020649_ss.vrt'
     # fname = 'T52SDG_20180719T020649_118a04_20m.vrt'
     # fname = 'T52SDG_20211004T021609_B118a04.vrt'
-    fname = 'T39QXG_20171113T070131_B118a04.vrt'
+    # fname = 'T39QXG_20171113T070131_B118a04.vrt'
     
     
     # path_out = 'D:/Scripts/Segmentation/S2/test/'
-    path_out = "../outputs"
     
     ds = gdal.Open(os.path.join(path_to_data,fname))
     x_size = ds.RasterXSize
