@@ -2,7 +2,5 @@
 *.pyc
 __pycache__
 venv
-fmask/inputs
-fmask/outputs
-# */inputs
-# */outputs
+*/inputs
+*/outputs
