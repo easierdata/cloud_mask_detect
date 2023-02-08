@@ -3,3 +3,4 @@ fmask/inputs
 fmask/outputs
 *.pyc
 __pycache__
+venv
