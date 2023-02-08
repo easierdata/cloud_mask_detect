@@ -1,6 +1,6 @@
 .DS_STORE
-fmask/inputs
-fmask/outputs
 *.pyc
 __pycache__
 venv
+*/inputs
+*/outputs
