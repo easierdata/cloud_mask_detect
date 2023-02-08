@@ -1,0 +1,5 @@
+matplotlib
+scipy
+statsmodels
+scikit-image
+GDAL
