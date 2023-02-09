@@ -19,16 +19,24 @@ then
     mkdir $output_dir
 fi
 
-# Set the input files to be used in the mosaic
-input_files="$input_dir/*.TIF"
-
 # Set the output file name
 output_file="$output_dir/$(basename $input_dir)_mosaic.tif"
 
-# Activate the Python environment
-source venv/bin/activate
+# Initialize an empty list to hold the input files
+input_files=""
+
+# Find the bands we want (4, 3, and 2)
+for band in 4 3 2
+do
+    # Build the file name for this band
+    file_name="$input_dir/*B$band.TIF"
+
+    # Add the file name to the list of input files
+    input_files="$input_files $file_name"
+done
 
 # Create the mosaic
-gdal_merge.py -o $output_file $input_files
+echo $input_files
+gdal_merge.py -v -o $output_file $input_files
 
 echo "Mosaic created successfully and saved to $output_file"
