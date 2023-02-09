@@ -19,6 +19,7 @@ from skimage.util import img_as_float
 from osgeo import gdal, osr, ogr, gdalconst
 import time
 import os
+import argparse
 
 output_driver = 'GTiff'
 output_options = []#['COMPRESS=LZW', 'TILED=YES'] #, 'COMPRESS=DEFLATE'] also TBD: how to create an overview
@@ -62,12 +63,12 @@ def Test():
     plt.show()
     return
 
-def Sentinel2SLIC(path_to_data, path_out, fname):
+def Sentinel2SLIC(path_to_mosaic, path_out):
     # path_to_data = 'D:/Data/Classif-testbed/sat2018_mt/coreg/'
     # path_out = 'D:/Scripts/Segmentation/S2/test/'
     # fname = 'srLaSRCS2AV3.5.5-L1C_T18SUJ_A015924_20180710T160035-all_geo.tif'
     
-    ds = gdal.Open(os.path.join(path_to_data,fname))
+    ds = gdal.Open(path_to_mosaic)
     x_size = ds.RasterXSize
     y_size = ds.RasterYSize
     num_bands = ds.RasterCount
@@ -170,7 +171,7 @@ def Sentinel2SLIC(path_to_data, path_out, fname):
     ds = None
     img = None
 
-def Sentinel2QuickShift(path_to_data, fname, path_out="../outputs"):
+def Sentinel2QuickShift(path_to_mosaic, path_out="../outputs"):
     # path_to_data = 'D:/Data/Classif-testbed/sat2018_mt/coreg/'
     # fname = 'srLaSRCS2AV3.5.5-L1C_T18SUJ_A015924_20180710T160035-all_geo.tif'
     
@@ -183,7 +184,7 @@ def Sentinel2QuickShift(path_to_data, fname, path_out="../outputs"):
     
     # path_out = 'D:/Scripts/Segmentation/S2/test/'
     
-    ds = gdal.Open(os.path.join(path_to_data,fname))
+    ds = gdal.Open(path_to_mosaic)
     x_size = ds.RasterXSize
     y_size = ds.RasterYSize
     num_bands = ds.RasterCount
@@ -287,6 +288,8 @@ def Sentinel2QuickShift(path_to_data, fname, path_out="../outputs"):
     img = None
 
 if __name__ == "__main__":
-#    Test()
-    # Sentinel2SLIC()
-    Sentinel2QuickShift()
+    parser = argparse.ArgumentParser(description='Segmentation of Sentinel-2 images')
+    parser.add_argument('-f', '--fname', type=str, help='path to the image mosaic')
+    args = parser.parse_args()
+    Sentinel2QuickShift(args.fname)
+    #Sentinel2SLIC(args.fname)
