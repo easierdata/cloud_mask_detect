@@ -10,5 +10,4 @@ LABEL maintainer="jsolly"
 WORKDIR /project/inputs
 RUN mkdir ../outputs
 
-# CMD ["python3", "inputs/test.py"]
-CMD ["python3", "segmentation_testbed_2.py", "../outputs"]
+CMD ["python3", "segmentation_testbed_2.py", "-f", "landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif"]

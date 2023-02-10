@@ -37,6 +37,6 @@ done
 
 # Create the mosaic
 echo $input_files
-gdal_merge.py -v -o $output_file $input_files
+gdal_merge.py -v -o $output_file -seperate $input_files
 
 echo "Mosaic created successfully and saved to $output_file"
