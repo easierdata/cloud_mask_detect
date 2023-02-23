@@ -54,7 +54,7 @@ A mosaic of the Landsat scene should be created inside `/inputs/landsatScenesMos
 ### Test Locally
 ```shell
 $ cd segmentation_testbed/inputs
-$ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt ../outputs/ #TODO: update this command
+$ python3 segmentation_testbed_2.py -f ../../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
 ```
 Something should be printed to the console and the output directory should contain the output files.
 
