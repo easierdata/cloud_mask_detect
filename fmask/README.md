@@ -22,7 +22,7 @@ $ source venv/bin/activate
 ### Test Locally
 ```shell
 $ cd fmask/inputs
-$ python3 fmask_4_3.py LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt ../outputs/
+$ python3 fmask_4_3.py ../../data/LC08_L1TP_152028_20160209_20200907_02_T1/LC08_L1TP_152028_20160209_20200907_02_T1_MTL.txt ../outputs/ --path_dem="../../data/AuxiData/GTOPO30ZIP" --path_gswo="../../data/AuxiData/GSWO150ZIP"
 ```
 Something should be printed to the console and the output directory should contain the output files.
 
