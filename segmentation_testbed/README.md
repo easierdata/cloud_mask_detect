@@ -91,8 +91,7 @@ $ docker run --rm -v $(pwd)/inputs:/project/inputs segmentation_testbed
 ### Run the Docker Image on Bacalhau
 ```shell
 Step 7 - Run the Docker image on Bacalhau
-bacalhau docker run -v QmSSx9zK9keTwJccmnB9P4Ss9t7fjcmYU1Q7H1BgMv3xdS:/project/inputs \
-	<USERNAME>/segmentation_testbed
+bacalhau docker run -v bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y:/project/inputs <USERNAME>/segmentation_testbed
 bacalhau list
 bacalhau describe [JOB_ID]
 bacalhau get [JOB_ID]
