@@ -56,7 +56,7 @@ $ docker run --rm -v $(pwd)/inputs:/project/inputs cloud_mask_detect
     ipfs add -r <input_data_directory>
     ```
 
-### Run the Docker Image on Bacalhau
+### Run the Docker Image on Bacalhau (The CID points to /inputs on IPFS)
 ```shell
 Step 7 - Run the Docker image on Bacalhau
 bacalhau docker run -v QmSSx9zK9keTwJccmnB9P4Ss9t7fjcmYU1Q7H1BgMv3xdS:/project/inputs \
@@ -65,6 +65,3 @@ bacalhau list
 bacalhau describe [JOB_ID]
 bacalhau get [JOB_ID]
 ```
-
-## /inputs Pinned to my local IPFS node and available to the network
-inputs:QmSSx9zK9keTwJccmnB9P4Ss9t7fjcmYU1Q7H1BgMv3xdS
