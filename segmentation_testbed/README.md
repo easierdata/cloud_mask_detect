@@ -66,8 +66,8 @@ $ docker buildx build --platform linux/amd64 -t segmentation_testbed .
 Otherwise, you can run this command to build the image:
 ```shell
 $ docker build -t segmentation_testbed .
-$ docker run --rm -it -v $(pwd)/inputs/:/project/inputs segmentation_testbed /bin/bash
-$ docker run --rm -v $(pwd)/inputs:/project/inputs segmentation_testbed
+$ docker run --rm -it -v ../../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs segmentation_testbed /bin/bash
+$ docker run --rm -v ../../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs segmentation_testbed
 ```
 ### Push Image to Docker Hub and Upload Input Data to Filecoin/IPFS
 
