@@ -96,6 +96,3 @@ bacalhau list
 bacalhau describe [JOB_ID]
 bacalhau get [JOB_ID]
 ```
-
-## /inputs Pinned to my local IPFS node and available to the network
-inputs:QmSSx9zK9keTwJccmnB9P4Ss9t7fjcmYU1Q7H1BgMv3xdS
