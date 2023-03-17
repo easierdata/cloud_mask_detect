@@ -5,17 +5,13 @@
 This is easier said than done. The dockerfile is a good example of how to install GDAL and it's dependencies on an ubuntu-based docker container, but you'll fall flat trying to replicate the same steps on a different operating system (like MacOS or Windows).
 ### Install GDAL and dependencies on MacOS
 ```
-$ brew install gdal
-$ brew install python3
-$ which python3
-> /opt/homebrew/bin/python3
+brew install gdal
+brew install python3
 # Create a virtual environment for this project locally
-$ python3 -m venv venv
-$ source venv/bin/activate
-(venv) $ which python3
-(venv) > ~/cloud_mask_detect/segmentation_testbed/venv/bin/python3
-(venv) $ python3 -m pip install --upgrade pip
-(venv) $ python3 -m pip install requirements/requirements.txt -c constraints.txt
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install requirements/requirements.txt -c constraints.txt
 ```
 
 ### Install GDAL and dependencies on Ubuntu
@@ -85,11 +81,11 @@ Something should be printed to the console and the output directory should conta
 ### Create Docker Image and Test Container Locally
 If you are on a machine running the arm64 architecture (M1, M2 Macs) you will need to run this command to build the image:
 ```shell
-$ docker buildx build --platform linux/amd64 -t segmentation_testbed .
+docker buildx build --platform linux/amd64 -t segmentation_testbed .
 ``` 
 Otherwise, run this command to build the image on an amd64 architecture machine:
 ```shell
-$ docker build -t segmentation_testbed .
+docker build -t segmentation_testbed .
 ```
 
 Execute the docker container to test
