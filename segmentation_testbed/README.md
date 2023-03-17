@@ -71,7 +71,9 @@ mv ../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif ../data/landsatSc
 ### Test Locally
 ```shell
 mkdir outputs
-python3 inputs/segmentation_testbed_2.py -f ../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
+# working dir change is necessary for the script to operate properly
+cd inputs
+python3 segmentation_testbed_2.py -f ../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
 ```
 Something should be printed to the console and the output directory should contain the output files.
 
