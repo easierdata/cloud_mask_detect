@@ -18,6 +18,22 @@ $ source venv/bin/activate
 (venv) $ python3 -m pip install requirements/requirements.txt -c constraints.txt
 ```
 
+### Install GDAL and dependencies on Ubuntu
+```
+sudo add-apt-repository ppa:ubuntugis/ppa -y
+sudo apt-get update
+sudo apt-get install gdal-bin
+ogrinfo --version
+# Verify the version
+
+# Create a virtual environment for this project locally
+python3 -m venv venv
+source venv/bin/activate
+which python3
+python3 -m pip install --upgrade pip
+python3 -m pip install requirements/requirements.txt -c constraints.txt
+```
+
 ## Steps to run the script
 
 ### Mosaic a Landsat Scene
