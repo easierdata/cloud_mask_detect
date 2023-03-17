@@ -1,4 +1,3 @@
-
 FROM osgeo/gdal
 RUN apt-get update -y
 RUN apt-get install -y python3-pip
@@ -8,11 +7,11 @@ RUN python3 -m pip install scikit-image
 RUN python3 -m pip install numpy
 
 LABEL maintainer="jsolly"
-RUN mkdir -p /project/outputs
 WORKDIR /project/inputs
-
 COPY ./inputs/segmentation_testbed_2.py /project/inputs
-COPY test1.txt /project/inputs
+RUN mkdir -p /project/outputs
+
+
 
 
 CMD ["python3", "segmentation_testbed_2.py", "-f", "LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif"]

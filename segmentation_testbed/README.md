@@ -74,7 +74,7 @@ Otherwise, run this command to build the image on an amd64 architecture machine:
 $ docker build -t segmentation_testbed .
 ```
 
-Execute the docker container
+Execute the docker container to test
 ```shell
 #Interactive Mode
 $ docker run --rm -it -v docker run --rm -v $PWD/../data:/project/inputs segmentation_testbed /bin/bash
