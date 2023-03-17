@@ -105,11 +105,12 @@ docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.
     ```
 - Tag the Docker image with your Docker Hub username using the following command:
     ```shell
-    docker tag segmentation_testbed <DOCKER_USERNAME>/segmentation_testbed
+    export USERNAME=VALUE
+    docker tag segmentation_testbed ${USERNAME}/segmentation_testbed
     ```
 - Push the Docker image to the Docker Hub using the following command:
     ```shell
-    docker push <DOCKER_USERNAME>/segmentation_testbed
+    docker push ${USERNAME}/segmentation_testbed
     ```
 - Upload input data to Filecoin/IPFS. Here is an example using the IPFS CLI:
     ```shell
@@ -118,10 +119,10 @@ docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.
 
 ### Run the Docker Image on Bacalhau
 ```shell
-export USERNAME=VALUE
-bacalhau docker run \ 
-    -v bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y:/project/inputs \ 
-    ${USERNAME}/segmentation_testbed
+#install bacalhau cli
+curl -sL https://get.bacalhau.org/install.sh | bash
+
+bacalhau docker run -v bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif ${USERNAME}/segmentation_testbed:latest
 bacalhau list
 bacalhau describe [JOB_ID]
 bacalhau get [JOB_ID]
