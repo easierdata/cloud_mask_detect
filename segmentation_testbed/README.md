@@ -22,21 +22,16 @@ $ source venv/bin/activate
 ```
 sudo add-apt-repository ppa:ubuntugis/ppa -y
 sudo apt-get update
-sudo apt-get install gdal-bin
-ogrinfo --version
-# Verify the version
+sudo apt-get install gdal-bin libgdal-dev gcc g++ python python-dev libffi-dev -y
 
 # Create a virtual environment for this project locally
-python3 -m venv venv
-source venv/bin/activate
-which python3
-python3 -m pip install --upgrade pip
-python3 -m pip install requirements/requirements.txt -c constraints.txt
+python3 -m pip install --upgrade pip 
+python3 -m pip install -r requirements/requirements.txt -c requirements/constraints-ubuntu.txt
 ```
 
 ## Steps to run the script
 
-### Mosaic a Landsat Scene
+### Prepare the input file - Mosaic a Landsat Scene
 This script assumes you have a directory containing a Landsat scene. The directory should look something like this:
 ```shell
 inputs/landsatScenes/
@@ -68,16 +63,23 @@ $ sh mosaic_landsat.sh inputs/landsatScenes/LC08_L1TP_001028_20220615_20220627_0
 ```
 
 A mosaic of the Landsat scene should be created inside `/inputs/landsatScenesMosiacs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif`.
-### Test Locally
-```shell
-$ python3 inputs/segmentation_testbed_2.py -f ../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
-```
-Something should be printed to the console and the output directory should contain the output files.
 
 (Alternative) get the file from the IPFS gateway
 ```shell
-$ wget https://ipfs.io/ipfs/bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
+wget https://ipfs.io/ipfs/bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
+mkdir ../data/landsatScenesMosiacs/
+mv ../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif ../data/landsatScenesMosiacs/
+
 ```
+
+### Test Locally
+```shell
+mkdir outputs
+python3 inputs/segmentation_testbed_2.py -f ../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
+```
+Something should be printed to the console and the output directory should contain the output files.
+
+
 
 
 ### Create Docker Image and Test Container Locally
