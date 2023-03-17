@@ -118,8 +118,10 @@ docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.
 
 ### Run the Docker Image on Bacalhau
 ```shell
-Step 7 - Run the Docker image on Bacalhau
-bacalhau docker run -v bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y:/project/inputs <USERNAME>/segmentation_testbed
+export USERNAME=VALUE
+bacalhau docker run \ 
+    -v bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y:/project/inputs \ 
+    ${USERNAME}/segmentation_testbed
 bacalhau list
 bacalhau describe [JOB_ID]
 bacalhau get [JOB_ID]
