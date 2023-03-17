@@ -50,24 +50,36 @@ Going off the example above, you would run the following command:
 ```shell
 $ sh mosaic_landsat.sh inputs/landsatScenes/LC08_L1TP_001028_20220615_20220627_02_T1
 ```
+
 A mosaic of the Landsat scene should be created inside `/inputs/landsatScenesMosiacs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif`.
 ### Test Locally
 ```shell
-$ cd segmentation_testbed/inputs
-$ python3 segmentation_testbed_2.py -f ../../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
+$ python3 inputs/segmentation_testbed_2.py -f ../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
 ```
 Something should be printed to the console and the output directory should contain the output files.
 
+(Alternative) get the file from the IPFS gateway
+```shell
+$ wget https://ipfs.io/ipfs/bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
+```
+
+
 ### Create Docker Image and Test Container Locally
-**If you are on arm64 architecture (M1, M2 Macs) you will need to run this command to build the image:**
+If you are on a machine running the arm64 architecture (M1, M2 Macs) you will need to run this command to build the image:
 ```shell
 $ docker buildx build --platform linux/amd64 -t segmentation_testbed .
 ``` 
-Otherwise, you can run this command to build the image:
+Otherwise, run this command to build the image on an amd64 architecture machine:
 ```shell
 $ docker build -t segmentation_testbed .
-$ docker run --rm -it -v ../../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs segmentation_testbed /bin/bash
-$ docker run --rm -v ../../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs segmentation_testbed
+```
+
+Execute the docker container
+```shell
+#Interactive Mode
+$ docker run --rm -it -v docker run --rm -v $PWD/../data:/project/inputs segmentation_testbed /bin/bash
+#Non-interactive Mode
+$ docker run --rm -v docker run --rm -v $PWD/../data:/project/inputs segmentation_testbed 
 ```
 ### Push Image to Docker Hub and Upload Input Data to Filecoin/IPFS
 
