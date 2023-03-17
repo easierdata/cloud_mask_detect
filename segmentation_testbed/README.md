@@ -77,9 +77,9 @@ $ docker build -t segmentation_testbed .
 Execute the docker container to test
 ```shell
 #Interactive Mode
-$ docker run --rm -it -v docker run --rm -v $PWD/../data:/project/inputs segmentation_testbed /bin/bash
+docker run --rm -it -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif segmentation_testbed /bin/bash
 #Non-interactive Mode
-$ docker run --rm -v docker run --rm -v $PWD/../data:/project/inputs segmentation_testbed 
+docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif segmentation_testbed 
 ```
 ### Push Image to Docker Hub and Upload Input Data to Filecoin/IPFS
 

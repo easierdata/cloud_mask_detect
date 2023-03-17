@@ -7,9 +7,11 @@ RUN python3 -m pip install scikit-image
 RUN python3 -m pip install numpy
 
 LABEL maintainer="jsolly"
-WORKDIR /project/inputs
-COPY ./inputs/segmentation_testbed_2.py /project/inputs
 RUN mkdir -p /project/outputs
+RUN mkdir -p /project/inputs
+WORKDIR /project/inputs
+COPY ./inputs/segmentation_testbed_2.py /project/inputs/segmentation_testbed_2.py
+
 
 
 
