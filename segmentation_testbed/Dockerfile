@@ -7,8 +7,12 @@ RUN python3 -m pip install scikit-image
 RUN python3 -m pip install numpy
 
 LABEL maintainer="jsolly"
+RUN mkdir -p /project/outputs
+RUN mkdir -p /project/inputs
 WORKDIR /project/inputs
-COPY ./inputs/ /project/inputs/segmentation_testbed_2.py
-RUN mkdir ../outputs
+COPY ./inputs/segmentation_testbed_2.py /project/inputs/segmentation_testbed_2.py
+
+
+
 
 CMD ["python3", "segmentation_testbed_2.py", "-f", "LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif"]
