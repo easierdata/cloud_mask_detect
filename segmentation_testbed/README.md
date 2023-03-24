@@ -21,6 +21,8 @@ sudo apt-get update
 sudo apt-get install gdal-bin libgdal-dev gcc g++ python python-dev libffi-dev -y
 
 # Create a virtual environment for this project locally
+python3 -m venv venv
+source venv/bin/activate
 python3 -m pip install --upgrade pip 
 python3 -m pip install -r requirements/requirements.txt -c requirements/constraints-ubuntu.txt
 ```
@@ -63,8 +65,7 @@ A mosaic of the Landsat scene should be created inside `/inputs/landsatScenesMos
 (Alternative) get the file from the IPFS gateway
 ```shell
 wget https://ipfs.io/ipfs/bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
-mkdir ../data/landsatScenesMosiacs/
-mv ../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif ../data/landsatScenesMosiacs/
+mv LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif ../data/
 
 ```
 
@@ -72,8 +73,7 @@ mv ../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif ../data/landsatSc
 ```shell
 mkdir outputs
 # working dir change is necessary for the script to operate properly
-cd inputs
-python3 segmentation_testbed_2.py -f ../data/landsatSceneMosaics/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
+python3 inputs/segmentation_testbed_2.py -f ../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif
 ```
 Something should be printed to the console and the output directory should contain the output files.
 
