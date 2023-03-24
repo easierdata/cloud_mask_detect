@@ -172,7 +172,7 @@ def Sentinel2SLIC(path_to_mosaic, path_out):
     ds = None
     img = None
 
-def Sentinel2QuickShift(path_to_mosaic, path_out="../outputs"):
+def Sentinel2QuickShift(path_to_mosaic, path_out="outputs"):
     # path_to_data = 'D:/Data/Classif-testbed/sat2018_mt/coreg/'
     # fname = 'srLaSRCS2AV3.5.5-L1C_T18SUJ_A015924_20180710T160035-all_geo.tif'
     # path_to_data = r'D:\Scripts\S2A_cloud_cover\example_data'

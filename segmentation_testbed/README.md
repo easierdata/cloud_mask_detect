@@ -21,8 +21,8 @@ sudo apt-get update
 sudo apt-get install gdal-bin libgdal-dev gcc g++ python python-dev libffi-dev -y
 
 # Create a virtual environment for this project locally
-python3 -m venv venv
-source venv/bin/activate
+# python3 -m venv venv
+# source venv/bin/activate
 python3 -m pip install --upgrade pip 
 python3 -m pip install -r requirements/requirements.txt -c requirements/constraints-ubuntu.txt
 ```
@@ -93,9 +93,9 @@ docker build -t segmentation_testbed .
 Execute the docker container to test
 ```shell
 #Interactive Mode
-docker run --rm -it -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif segmentation_testbed /bin/bash
+docker run --rm -it -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif -v $PWD/outputs:/project/outputs/ segmentation_testbed /bin/bash
 #Non-interactive Mode
-docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif segmentation_testbed 
+docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif -v $PWD/outputs:/project/outputs/ segmentation_testbed 
 ```
 ### Push Image to Docker Hub and Upload Input Data to Filecoin/IPFS
 
@@ -105,12 +105,12 @@ docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.
     ```
 - Tag the Docker image with your Docker Hub username using the following command:
     ```shell
-    export USERNAME=VALUE
-    docker tag segmentation_testbed ${USERNAME}/segmentation_testbed
+    export USERNAME=wesfloyd
+    docker tag segmentation_testbed ${USERNAME}/segmentation_testbed:latest
     ```
 - Push the Docker image to the Docker Hub using the following command:
     ```shell
-    docker push ${USERNAME}/segmentation_testbed
+    docker push ${USERNAME}/segmentation_testbed:latest
     ```
 - Upload input data to Filecoin/IPFS. Here is an example using the IPFS CLI:
     ```shell
@@ -123,5 +123,7 @@ docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.
 curl -sL https://get.bacalhau.org/install.sh | bash
 
 export USERNAME=wesfloyd
-bacalhau docker run -v QmTYadG6K4LocouLu6wFzeMXNB5z8ikdpwuGqpdZNxp5qR:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif ${USERNAME}/segmentation_testbed:latest
+
+bacalhau docker run -v QmTYadG6K4LocouLu6wFzeMXNB5z8ikdpwuGqpdZNxp5qR:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif -o outputs:/project/outputs/ ${USERNAME}/segmentation_testbed:latest
+
 ```
