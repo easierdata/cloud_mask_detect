@@ -121,9 +121,7 @@ docker run --rm -v $PWD/../data/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.
 ```shell
 #install bacalhau cli
 curl -sL https://get.bacalhau.org/install.sh | bash
+export USERNAME=wesfloyd
 
 bacalhau docker run -v bafybeiblcnj6z4pkqmfxi7jxjvkaxue2kw5xxsfhdzwyjfe23vnhvukr7y:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif ${USERNAME}/segmentation_testbed:latest
-bacalhau list
-bacalhau describe [JOB_ID]
-bacalhau get [JOB_ID]
 ```
