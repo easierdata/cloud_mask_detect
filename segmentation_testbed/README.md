@@ -124,6 +124,7 @@ curl -sL https://get.bacalhau.org/install.sh | bash
 
 export USERNAME=wesfloyd
 
-bacalhau docker run -v QmTYadG6K4LocouLu6wFzeMXNB5z8ikdpwuGqpdZNxp5qR:/project/inputs/LC08_L1TP_001028_20220615_20220627_02_T1_mosaic.tif -o outputs:/project/outputs/ ${USERNAME}/segmentation_testbed:latest
+# Note: adding the --id-only flag for this run
+bacalhau docker run -v QmTYadG6K4LocouLu6wFzeMXNB5z8ikdpwuGqpdZNxp5qR:/project/inputs/LC08_L1TP_0018_20220615_20220627_02_T1_mosaic.tif -o outputs2:/project/outputs/ --id-only ${USERNAME}/segmentation_testbed:latest
 
 ```
