@@ -1,4 +1,3 @@
 matplotlib
 scikit-image
 numpy
-GDAL
